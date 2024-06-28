@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { GlobalContext } from "./Global";
 
-export const TodoInput = ({ handleAddToDoList, todoValue, setTodoValue }) => {
+export const TodoInput = () => {
+    const { handleAddToDoList, todoValue, setTodoValue } =
+        useContext(GlobalContext);
     return (
         <div className="input-container">
             <input

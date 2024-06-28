@@ -1,16 +1,15 @@
+import { useContext } from "react";
 import { TodoCard } from "./TodoCard";
+import { GlobalContext } from "./Global";
 
-export const TodoList = ({ lists, handleRemoveList, handleEditList }) => {
+export const TodoList = () => {
+    const { todoList, handleRemoveList, handleEditList } =
+        useContext(GlobalContext);
     return (
         <ul className="todolist-container">
-            {lists &&
-                lists.map((list, listIndex) => (
-                    <TodoCard
-                        key={listIndex}
-                        handleRemoveList={handleRemoveList}
-                        index={listIndex}
-                        handleEditList={handleEditList}
-                    >
+            {todoList &&
+                todoList.map((list, listIndex) => (
+                    <TodoCard key={listIndex} index={listIndex}>
                         {list}
                     </TodoCard>
                 ))}
